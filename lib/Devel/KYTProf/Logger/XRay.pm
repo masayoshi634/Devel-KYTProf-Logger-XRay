@@ -8,7 +8,7 @@ use AWS::XRay;
 use Devel::KYTProf;
 use Time::HiRes();
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 sub log {
     my ($class, %args) = @_;
