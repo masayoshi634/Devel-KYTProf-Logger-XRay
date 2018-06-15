@@ -43,7 +43,7 @@ sub log {
         $segment->{metadata} = $data;
     }
     eval {
-        $segment->send();
+        $segment->close();
     };
     if ($@) {
         warn $@;
