@@ -5,7 +5,6 @@ use strict;
 use warnings;
 
 use AWS::XRay;
-use Devel::KYTProf;
 use Time::HiRes();
 
 our $VERSION = "0.03";
