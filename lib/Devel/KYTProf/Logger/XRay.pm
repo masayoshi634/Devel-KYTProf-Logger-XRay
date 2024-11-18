@@ -23,7 +23,7 @@ sub log {
         $segment->{end_time}   = $end;
 
         my $data = $args{data};
-        $segment->{metadata} = $data;
+        $segment->{metadata}->{KYTProf} = $data;
         if (exists $data->{http_method}) {
             $segment->{http} = {
                 request => {
@@ -37,9 +37,13 @@ sub log {
                 sanitized_query => delete $data->{sql},
             };
         }
-        for my $n (qw/method package file line/) {
-            $segment->{metadata}->{$n} = $args{$n};
-        }
+
+        $segment->{metadata}->{source} = {
+            method => $args{method},
+            package => $args{package},
+            file => $args{file},
+            line => $args{line},
+        };
     }
 }
 
